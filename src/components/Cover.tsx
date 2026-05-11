@@ -3,17 +3,21 @@
 interface CoverProps {
   guestName: string;
   onOpen: () => void;
+  coupleName: string;
+  date: string;
+  hashtag: string;
+  coverImage: string;
 }
 
-export default function Cover({ guestName, onOpen }: CoverProps) {
+export default function Cover({ guestName, onOpen, coupleName, date, hashtag, coverImage }: CoverProps) {
   return (
-    <section className="cover">
+    <section className="cover" style={{ backgroundImage: `url('${coverImage}')` }}>
       <div className="overlay"></div>
       <div className="cover-content">
         <p className="cover-subtitle">Wedding Invitation</p>
-        <h1 className="cover-title">Nauval & Azizah</h1>
-        <div className="cover-date">23 Agustus 2026</div>
-        <div className="cover-hashtag">#NauvalAzizahForever</div>
+        <h1 className="cover-title">{coupleName}</h1>
+        <div className="cover-date">{date}</div>
+        <div className="cover-hashtag">{hashtag}</div>
         <div className="cover-guest">
           <p>Dear,</p>
           <h2>{guestName}</h2>

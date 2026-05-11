@@ -2,14 +2,20 @@
 
 import AnimateOnScroll from './AnimateOnScroll';
 
-export default function Hero() {
+interface HeroProps {
+  coupleName: string;
+  date: string;
+  heroImage: string;
+}
+
+export default function Hero({ coupleName, date, heroImage }: HeroProps) {
   return (
-    <section className="hero">
+    <section className="hero" style={{ backgroundImage: `url('${heroImage}')` }}>
       <div className="hero-overlay"></div>
       <AnimateOnScroll className="hero-content">
         <p className="section-subtitle">The Wedding Of</p>
-        <h1 className="hero-names">Nauval & Azizah</h1>
-        <p className="hero-date">Minggu, 23 Agustus 2026</p>
+        <h1 className="hero-names">{coupleName}</h1>
+        <p className="hero-date">{date}</p>
         <div className="hero-divider">
           <span></span>
           <i className="fas fa-heart"></i>

@@ -2,38 +2,13 @@
 
 import AnimateOnScroll from './AnimateOnScroll';
 
-const stories = [
-  {
-    title: 'Pertama Bertemu',
-    date: 'Januari 2022',
-    description:
-      'Cinta kami adalah cerita tentang dua jiwa yang bertemu tanpa disengaja. Tidak ada yang menyangka, sebuah pertemuan biasa justru menjadi awal dari kisah luar biasa.',
-    animation: 'fade-right' as const,
-  },
-  {
-    title: 'Menjalin Hubungan',
-    date: 'Juni 2022',
-    description:
-      'Dari obrolan ringan hingga diskusi mendalam, kami menemukan bahwa kami saling melengkapi. Setiap langkah dalam perjalanan takdir ini, telah membawa kami lebih dekat satu sama lain.',
-    animation: 'fade-left' as const,
-  },
-  {
-    title: 'Lamaran',
-    date: 'Maret 2026',
-    description:
-      'Dengan penuh keberanian dan cinta, sebuah pertanyaan diajukan dan dijawab dengan penuh kebahagiaan. Kami siap memulai babak baru dalam hidup kami.',
-    animation: 'fade-right' as const,
-  },
-  {
-    title: 'Forever Starts Here',
-    date: 'Agustus 2026',
-    description:
-      'Dengan penuh rasa syukur, kami ingin merayakan cinta kami di hari yang istimewa. Cinta yang sakral, cinta yang bermuara pada cinta-Nya.',
-    animation: 'fade-left' as const,
-  },
-];
+interface LoveStoryProps {
+  stories: { title: string; date: string; description: string }[];
+}
 
-export default function LoveStory() {
+export default function LoveStory({ stories }: LoveStoryProps) {
+  const animations = ['fade-right', 'fade-left'] as const;
+
   return (
     <section className="story section">
       <div className="container">
@@ -42,7 +17,7 @@ export default function LoveStory() {
         </AnimateOnScroll>
         <div className="timeline">
           {stories.map((story, index) => (
-            <AnimateOnScroll key={index} className="timeline-item" animation={story.animation}>
+            <AnimateOnScroll key={index} className="timeline-item" animation={animations[index % 2]}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <h3>{story.title}</h3>

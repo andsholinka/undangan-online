@@ -9,7 +9,7 @@ export default function Petals() {
     const container = containerRef.current;
     if (!container) return;
 
-    const colors = ['#F5E6B8', '#D4AF37', '#C4A882', '#f8e8d4', '#e8d5b7'];
+    const colors = ['#1ed760', '#1db954', '#1f1f1f', '#b3b3b3', '#1ed760'];
 
     const createPetal = () => {
       const petal = document.createElement('div');
